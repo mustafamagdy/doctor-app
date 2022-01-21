@@ -20,7 +20,7 @@ class SignInScreen extends StatelessWidget {
     }
   }
 
-  late String _userName, _email, _phone, _password = '';
+  late String _userName, _password;
 
   @override
   Widget build(BuildContext context) {

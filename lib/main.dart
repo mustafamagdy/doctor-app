@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/pages/auth_screen.dart';
 import 'package:flutter_application_2/pages/signin_screen.dart';
 
 import './pages/signup_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignInScreen(),
+      home: AuthScreen(),
     );
   }
 }

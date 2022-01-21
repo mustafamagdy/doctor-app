@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/pages/signin_screen.dart';
+import 'package:flutter_application_2/pages/signup_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
@@ -31,7 +33,14 @@ class AuthScreen extends StatelessWidget {
                     width: double.maxFinite,
                     height: kDefaultPadding * 3,
                     child: RoundCornerButton(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => SignUpScreen(),
+                          ),
+                        );
+                      },
                       text: 'Sign Up',
                       color: Colors.cyan,
                       borderColor: Colors.cyan,
@@ -47,7 +56,14 @@ class AuthScreen extends StatelessWidget {
                     width: double.maxFinite,
                     height: kDefaultPadding * 3,
                     child: RoundCornerButton(
-                      onPress: () {},
+                      onPress: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => SignInScreen(),
+                          ),
+                        );
+                      },
                       text: 'Sign In',
                       color: Colors.transparent,
                       borderColor: Colors.cyan,
