@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constants.dart';
-import 'package:flutter_application_2/pages/signin_screen.dart';
-import 'package:flutter_application_2/validators/password_match.dart';
+import 'package:flutter_application_2/pages/signup_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 import '../widgets/form_field.dart';
 import '../widgets/round_corner_button.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  SignInScreen({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
 
@@ -40,8 +39,9 @@ class SignUpScreen extends StatelessWidget {
           body: SafeArea(
             child: SingleChildScrollView(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPadding,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
                       height: kDefaultPadding * 3,
                     ),
                     const Text(
-                      'Create Account',
+                      'Sign In',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
@@ -58,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
                     Row(
                       children: [
                         const Text(
-                          'Already have an account?',
+                          'Don\'t have an account?',
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.black45,
@@ -69,11 +69,11 @@ class SignUpScreen extends StatelessWidget {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (ctx) => SignInScreen(),
+                                builder: (ctx) => SignUpScreen(),
                               ),
                             );
                           },
-                          child: const Text('Sign In!'),
+                          child: const Text('Sign Up!'),
                         ),
                       ],
                     ),
@@ -90,26 +90,6 @@ class SignUpScreen extends StatelessWidget {
                             onSaved: (newValue) => _userName = newValue!,
                           ),
                           FormInput(
-                            label: 'Email',
-                            hint: 'Enter your email',
-                            validator: MultiValidator([
-                              RequiredValidator(
-                                errorText: 'Email is required',
-                              ),
-                              kEmailValidator
-                            ]),
-                            onSaved: (newValue) => _email = newValue!,
-                          ),
-                          FormInput(
-                            label: 'Phone',
-                            hint: 'Enter your phone number',
-                            validator: MultiValidator([
-                              RequiredValidator(errorText: 'Phone is required'),
-                              kPhoneValidator,
-                            ]),
-                            onSaved: (newValue) => _phone = newValue!,
-                          ),
-                          FormInput(
                             label: 'Password',
                             hint: 'Enter your password',
                             isObsecure: true,
@@ -117,21 +97,19 @@ class SignUpScreen extends StatelessWidget {
                             onChanged: (val) => _password = val,
                             onSaved: (newValue) => _password = newValue!,
                           ),
-                          FormInput(
-                            label: 'Confirm Password',
-                            hint: 'Confirm your password',
-                            isObsecure: true,
-                            //! this is not working, as password need to be
-                            //  passed again to the password match validator
-                            validator: PasswordMatchValidator(
-                              errorText: 'Password don\'t match',
-                              password: _password,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('Forgot Passwrd?'),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: kDefaultPadding * 2),
+                    const SizedBox(height: kDefaultPadding),
                     SizedBox(
                       width: double.maxFinite,
                       height: kDefaultPadding * 3,
