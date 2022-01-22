@@ -7,6 +7,8 @@ import '../constants.dart';
 import '../widgets/round_corner_button.dart';
 
 class AuthScreen extends StatelessWidget {
+  static const String route = '/';
+
   const AuthScreen({
     Key? key,
   }) : super(key: key);
@@ -34,12 +36,7 @@ class AuthScreen extends StatelessWidget {
                     height: kDefaultPadding * 3,
                     child: RoundCornerButton(
                       onPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (ctx) => SignUpScreen(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, SignUpScreen.route);
                       },
                       text: 'Sign Up',
                       color: Colors.cyan,
@@ -57,12 +54,7 @@ class AuthScreen extends StatelessWidget {
                     height: kDefaultPadding * 3,
                     child: RoundCornerButton(
                       onPress: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (ctx) => SignInScreen(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, SignInScreen.route);
                       },
                       text: 'Sign In',
                       color: Colors.transparent,

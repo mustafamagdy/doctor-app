@@ -8,6 +8,8 @@ import '../widgets/form_field.dart';
 import '../widgets/round_corner_button.dart';
 
 class SignInScreen extends StatelessWidget {
+  static const String route = '/sign-in';
+
   SignInScreen({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
@@ -66,11 +68,9 @@ class SignInScreen extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            Navigator.pushReplacementNamed(
                               context,
-                              MaterialPageRoute(
-                                builder: (ctx) => SignUpScreen(),
-                              ),
+                              SignUpScreen.route,
                             );
                           },
                           child: const Text('Sign Up!'),
